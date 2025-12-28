@@ -239,7 +239,6 @@ x \
     sT(expr, "Dagger(Symbol('x', commutative=False))")
 
 
-@XFAIL
 def test_gate_failing():
     a, b, c, d = symbols('a,b,c,d')
     uMat = Matrix([[a, b], [c, d]])
@@ -315,12 +314,7 @@ U \n\
 U \n\
  0\
 """
-    assert str(g4) == \
-"""\
-U((0,),Matrix([\n\
-[a, b],\n\
-[c, d]]))\
-"""
+    assert str(g4) == 'U(0)'
     assert pretty(g4) == ascii_str
     assert upretty(g4) == ucode_str
     assert latex(g4) == r'U_{0}'

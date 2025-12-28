@@ -572,6 +572,10 @@ class UGate(Gate):
         targets = self._print_sequence(self.targets, ',', printer, *args)
         return r'%s_{%s}' % (self.gate_name_latex, targets)
 
+    def _print_label(self, printer, *args):
+        targets = self._print_sequence(self.targets, ',', printer, *args)
+        return targets
+
     def plot_gate(self, circ_plot, gate_idx):
         circ_plot.one_qubit_box(
             self.gate_name_plot,
